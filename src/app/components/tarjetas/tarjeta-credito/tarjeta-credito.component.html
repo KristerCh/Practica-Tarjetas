@@ -1,0 +1,50 @@
+<form [formGroup]="formulario" (ngSubmit)="guardarTarjeta()">
+    <div class="form-group">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text bg-white">
+                    <i class="fas fa-user-circle"  [class.green-icon]="this.formulario.get('titular').valid"></i>
+                </div>
+            </div>
+            <input type="text" class="form-control" formControlName="titular" placeholder="Titular">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text bg-white">
+                    <i class="fas fa-credit-card" [class.green-icon]="this.formulario.get('numeroTarjeta').valid"></i>
+                </div>
+            </div>
+            <input type="text" class="form-control" [disabled]="formulario.invalid" maxlength="16" formControlName="numeroTarjeta" placeholder="Numero de tarjeta">
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-md-7">
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text bg-white">
+                            <i class="fas fa-calendar-alt" [class.green-icon]="this.formulario.get('fechaExpiracion').valid"></i>
+                        </div>
+                    </div>
+                    <input type="text" class="form-control" formControlName="fechaExpiracion" maxlength="5" placeholder="MM/YY">
+                </div>
+            </div>
+        </div>
+        <div class="form-group col-md-5">
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text bg-white">
+                            <i class="fas fa-key" [class.green-icon]="this.formulario.get('cvv').valid"></i>
+                        </div>
+                    </div>
+                    <input type="text" class="form-control" formControlName="cvv" maxlength="3" placeholder="CVV">
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="btn btn-success btn-lg btn-block" type="submit"><i class="fas fa-database"></i> Aceptar
+    </button>
+</form>
